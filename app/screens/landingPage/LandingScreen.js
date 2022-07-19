@@ -1,11 +1,11 @@
+import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-native';
-import Button from '../../components/button/Button';
+import RedirectButton from '../../components/redirectButton/RedirectButton';
 import { styles } from './styles';
-
 function LandingScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <Button
+      <RedirectButton
         navigateTo='WebViewPage'
         navigation={navigation}
         options={{ name: 'Jane' }}
@@ -14,5 +14,13 @@ function LandingScreen({ navigation }) {
     </SafeAreaView>
   );
 }
+
+LandingScreen.propTypes = {
+  navigation: PropTypes.object,
+};
+
+LandingScreen.defaultProps = {
+  navigation: undefined,
+};
 
 export default LandingScreen;
