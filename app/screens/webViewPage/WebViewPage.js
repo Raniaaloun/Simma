@@ -1,10 +1,18 @@
 import { useRef, useState } from 'react';
-import { Button } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { styles } from './styles';
 
-function WebViewPage({ navigation, route }) {
+function WebViewPage() {
   const webViewRef = useRef();
   const [triggered, fireTriggered] = useState(false);
+
+  const jsCode = `if(${triggered}){
+    var elements = document.getElementsByTagName('*');
+    for(var i=0; i<elements.length; i++){
+      elements[i].style.backgroundColor='red';
+    }
+  }`;
 
   const changeColor = () => {
     webViewRef.current.reload();
@@ -17,19 +25,20 @@ function WebViewPage({ navigation, route }) {
         source={{
           uri: 'https://ar.shein.com/',
         }}
-        injectedJavaScript={` if(${triggered}){var elements = document.getElementsByTagName('*');
-        for(var i=0; i<elements.length; i++){
-          elements[i].style.backgroundColor='red';
-        }}`}
+        injectedJavaScript={jsCode}
         style={{ marginTop: 20 }}
       />
-      <Button
-        title={triggered ? 'White' : 'RED'}
-        onPress={() => {
-          fireTriggered(!triggered);
-          changeColor();
-        }}
-      />
+      <View style={styles.footer}>
+        <Pressable
+          onPress={() => {
+            fireTriggered(!triggered);
+            changeColor();
+          }}
+          style={styles.button}
+        >
+          <Text style={styles.text}>{triggered ? 'White' : 'RED'}</Text>
+        </Pressable>
+      </View>
     </>
   );
 }

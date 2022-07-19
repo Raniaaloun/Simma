@@ -15,18 +15,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      {/* <View style={styles.container}>
-        <Text>rania</Text>
-        <RedirectButton />
-        <StatusBar style='auto' />
-      </View> */}
       <Stack.Navigator>
         <Stack.Screen
           name='LandingScreen'
           component={LandingScreen}
           options={{
             title: 'Simma',
-            headerTitleStyle: styles.test,
+            headerTitleStyle: styles.headerTitle,
             headerStyle: styles.header,
           }}
         />
@@ -35,7 +30,7 @@ export default function App() {
           component={WebViewPage}
           options={{
             title: 'The simma Lobby',
-            headerTitleStyle: styles.test,
+            headerTitleStyle: styles.headerTitle,
             headerStyle: styles.header,
           }}
         />
@@ -45,17 +40,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  test: {
-    // fontFamily: 'Hiruko',
-    color: `${colors.pureMidnight}`,
-  },
   header: {
     backgroundColor: `${colors.distantHorizon}`,
+  },
+  headerTitle: {
+    color: `${colors.pureMidnight}`,
+    fontFamily: 'Hiruko',
   },
 });
