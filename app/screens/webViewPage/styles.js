@@ -21,18 +21,20 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  screen: {
+  footer: {
     flex: 1,
     maxHeight: 60,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: `${colors.pureMidnight}`,
   },
-
   text: {
     fontSize: 10,
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: `${colors.pureMidnight}`,
+  },
+  webView: {
+    marginTop: 20,
   },
 });

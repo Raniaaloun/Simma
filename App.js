@@ -13,6 +13,10 @@ export default function App() {
     Hiruko: require('./app/assets/fonts/hiruko/HirukoBlackAlternate.ttf'),
   });
 
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>

@@ -26,7 +26,7 @@ function WebViewPage() {
           uri: 'https://ar.shein.com/',
         }}
         injectedJavaScript={jsCode}
-        style={{ marginTop: 20 }}
+        style={styles.webView}
       />
       <View style={styles.footer}>
         <Pressable
